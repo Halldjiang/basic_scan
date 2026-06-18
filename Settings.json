@@ -1,0 +1,55 @@
+{
+  "community": "garmon",
+  "port": 161,
+  "snmp_version": "auto",
+  "snmp_versions": ["2c", "3"],
+  "snmpv3_user": "snmpv3user",
+  "snmp_timeout": 5.0,
+  "snmp_retries": 3,
+  "region": "SG",
+  "idc": "PHBank",
+
+  "cdb_ip": "127.0.0.1",
+  "sql_port": 3306,
+  "sql_username": "root",
+  "sql_password_env": "dubaiB5nzaqwsx!",
+  "mysql_password": "dubaiB5nzaqwsx!",
+  "sql_database": "netdev_inventory",
+
+  "db_table": "ipaddresslist",
+  "interface_table": "ipaddresslist_interfaces",
+
+  "netmiko_username": "srv-infranetops",
+  "netmiko_password_env": "Az%J2r+PXc\"S6m",
+  "netmiko_password": "Az%J2r+PXc\"S6m",
+  "pa_username": "srv-infranetops",
+  "pa_password_env": "Az%J2r+PXc\"S6m",
+  "pa_password": "Az%J2r+PXc\"S6m",
+  
+  "snmpv3_auth_key": "PH100(adm!n)",
+  "snmpv3_priv_key": "PH100(adm!n)",
+
+  "fortigate_cli_fallback": true,
+  "fortigate_prefer_cli_interfaces": false,
+  "fortigate_cli_interface_threshold": 0,
+  "fortigate_username": "srv-infranetops",
+  "fortigate_password_env": "Az%J2r+PXc\"S6m",
+  "fortigate_netmiko_device_type": "fortinet",
+  "fortigate_interface_commands": [
+    "show system interface",
+    "get system interface"
+  ],
+  "fortigate_interface_expected_ip_prefixes": ["10.163."],
+
+  "holders": "jianghd@sea.com",
+  "subject": "basic scan error",
+  "sender_name": "si-banknoc@seabank.com.ph",
+  "smtp_server": "mail.mdw.seabanksvc.com",
+  "smtp_port": 25,
+  "smtp_tls": false,
+  "nxos_interface_detail_command": "show ip interface vrf all",
+  "nxos_interface_config_command": "show running-config interface",
+  "nxos_running_config_prefix_fallback": true,
+  "nxos_missing_prefix_as_32": false
+}
+
