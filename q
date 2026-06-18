@@ -362,9 +362,30 @@ def build_db_config(args: argparse.Namespace, settings: dict[str, Any]) -> DBCon
     if not database:
         missing.append("database")
     if missing:
+        db_keys = [
+            "cdb_ip",
+            "sql_host",
+            "db_host",
+            "mysql_host",
+            "sql_username",
+            "sql_user",
+            "db_user",
+            "mysql_user",
+            "sql_database",
+            "db_name",
+            "database",
+            "mysql_database",
+            "cdb_port",
+            "sql_port",
+            "db_port",
+            "mysql_port",
+        ]
+        present_keys = [key for key in db_keys if settings.get(key) not in (None, "")]
         print(
             "Missing DB config: " + ", ".join(missing) +
-            ". Provide it in Settings.json, environment variables, or CLI options.",
+            ". Provide it in Settings.json, environment variables, or CLI options.\n"
+            f"Settings path used: {args.settings}\n"
+            "DB setting keys found: " + (", ".join(present_keys) if present_keys else "none"),
             file=sys.stderr,
         )
         raise SystemExit(2)
@@ -1015,4 +1036,3 @@ if __name__ == "__main__":
     raise SystemExit(main())
 
 PYCODE
-
