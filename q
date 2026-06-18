@@ -13,7 +13,7 @@ SHARED_VENV="/usr/local/lib/basic_scan/q-venv"
 USER_VENV_DEFAULT="${HOME:-}/.local/share/basic_scan/q-venv"
 Q_VENV_DIR="${Q_VENV_DIR:-$USER_VENV_DEFAULT}"
 Q_AUTO_INSTALL_DEPS="${Q_AUTO_INSTALL_DEPS:-1}"
-Q_SETTINGS_FILE="${Q_SETTINGS_FILE:-/root/script/basic_scan/Settings.json}"
+Q_SETTINGS_FILE="${Q_SETTINGS_FILE:-/usr/local/etc/basic_scan/Settings.json}"
 
 if [[ -z "${CHECK_HOSTNAME_SETTINGS:-}" && -r "$Q_SETTINGS_FILE" ]]; then
   export CHECK_HOSTNAME_SETTINGS="$Q_SETTINGS_FILE"
