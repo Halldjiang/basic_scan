@@ -2195,13 +2195,13 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Basic network inventory scanner for Python 3.12")
     parser.add_argument(
         "--devices",
-        default="/home/ops/net-bot-sa/idcdevicelist",
+        default="/root/script/basic_scan/idcdevicelist",
         help="Path to the device IP list file",
     )
     parser.add_argument(
         "--settings",
         "--setting",
-        default="/home/ops/net-bot-sa/Settings.json",
+        default="/root/script/basic_scan/Settings.json",
         help="Path to Settings.json",
     )
     parser.add_argument(

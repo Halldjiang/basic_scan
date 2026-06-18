@@ -144,6 +144,22 @@ def first_env(env_names: Iterable[str]) -> str | None:
     return None
 
 
+def settings_path_detail(path: str) -> str:
+    settings_path = Path(path).expanduser()
+    try:
+        resolved = settings_path.resolve()
+    except OSError:
+        resolved = settings_path.absolute()
+
+    if not settings_path.exists():
+        return f"{resolved} (not found)"
+    if not settings_path.is_file():
+        return f"{resolved} (not a regular file)"
+    if not os.access(settings_path, os.R_OK):
+        return f"{resolved} (not readable by current user)"
+    return f"{resolved} (readable)"
+
+
 def setting_or_env_password(settings: dict[str, Any]) -> str:
     """Prefer env vars over plaintext Settings.json passwords."""
     configured_env_name = first_setting(
@@ -218,7 +234,7 @@ def build_db_config(args: argparse.Namespace, settings: dict[str, Any]) -> DBCon
         print(
             "Missing DB config: " + ", ".join(missing) +
             ". Provide it in Settings.json, environment variables, or CLI options.\n"
-            f"Settings path used: {args.settings}\n"
+            f"Settings path used: {settings_path_detail(args.settings)}\n"
             "DB setting keys found: " + (", ".join(present_keys) if present_keys else "none"),
             file=sys.stderr,
         )
